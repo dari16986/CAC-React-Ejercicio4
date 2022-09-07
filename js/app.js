@@ -50,7 +50,7 @@ parrafo.innerHTML = `<strong>Video:</strong>\n${mostrarPropiedades(myVideo)}
 function mostrarPropiedades(objeto) {
     result = '';
     for (let clave in objeto) result += `${clave}: ${objeto[clave]}\n`
-    return `<p>${result}</p>`;
+    return result;
 }
 
 

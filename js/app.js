@@ -24,29 +24,33 @@ class Boton {
 
 class ListaDeElementos {
     constructor(cantidadElementos, tipo) {
-         this.cantidadElementos  = cantidadElementos;
-         this.tipo = tipo;
-     } 
+        this.cantidadElementos = cantidadElementos;
+        this.tipo = tipo;
+    }
 }
 
+// ******** Creacion de instancias ****************
 
-let myVideo = new Video("c:/videos/031","640x480",".mp3");
-let myAudio = new Audio("c:/audios/012",".mp3");
-let myBoton = new Boton(20,10,"gris", "negro");
-let myListaDeElementos = new ListaDeElementos(5,"int");
-
-console.log(myVideo);
-console.log(myAudio);
-console.log(myBoton);
-console.log(myListaDeElementos);
+let myVideo = new Video("c:/videos/031", "640x480", ".mp3");
+let myAudio = new Audio("c:/audios/012", ".mp3");
+let myBoton = new Boton(20, 10, "gris", "negro");
+let myListaDeElementos = new ListaDeElementos(5, "int");
 
 
 const parrafo = document.getElementById("valores");
 
-var result = ``
-for (var i in myVideo) {
-    if (myVideo.hasOwnProperty(i)) {
-      result += `<p>myVideo.${i} = ${myVideo[i]}</p>`;
-    }
-  }
-  parrafo.innerHTML = result;  
+parrafo.innerHTML = `<strong>Video:</strong>\n${mostrarPropiedades(myVideo)}
+<strong>Audio:</strong>:\n${mostrarPropiedades(myAudio)}
+<strong>Boton:</strong>:\n${mostrarPropiedades(myBoton)}
+<strong>Lista De Elementos:</strong>:\n${mostrarPropiedades(myListaDeElementos)}`;
+
+
+//*************** */ Declaracion de Funciones ******************
+
+function mostrarPropiedades(objeto) {
+    result = '';
+    for (let clave in objeto) result += `${clave}: ${objeto[clave]}\n`
+    return `<p>${result}</p>`;
+}
+
+
